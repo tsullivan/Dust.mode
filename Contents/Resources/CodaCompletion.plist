@@ -5,9 +5,9 @@
 	<key>Comments</key>
 	<dict>
 		<key>EndTag</key>
-		<string>*}</string>
+		<string>!}</string>
 		<key>StartTag</key>
-		<string>{*</string>
+		<string>{!</string>
 	</dict>
 	<key>Completions</key>
 	<array>
@@ -83,11 +83,7 @@
 			<false/>
 		</dict>
 	</array>
-	<key>VariablePrefixes</key>
-	<array>
-		<string>$</string>
-	</array>
 	<key>Name</key>
-	<string>Smarty</string>
+	<string>Dust</string>
 </dict>
 </plist>

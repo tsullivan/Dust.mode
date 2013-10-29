@@ -3,7 +3,7 @@
 <syntax>
 	<!-- STUDIO - rewritten for 1.6.1, do not replace. -->
 	<head>
-		<name>Smarty</name> <!-- The definitions title -->
+		<name>Dust</name> <!-- The definitions title -->
 		<charsintokens><![CDATA[@$_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ<>]]></charsintokens>
 	</head>
 
@@ -12,122 +12,64 @@
 		<default id="Base" usesymbolsfrommode="HTML" useautocompletefrommode="HTML" usespellchecking="yes" scope="meta.default">
 
 			<import mode="XML" keywords-only="yes"/>
-			<state id="Smarty Comment" type="comment" background-color="none" usesymbolsfrommode="Smarty" useautocompletefrommode="Smarty" foldable="yes" scope="comment.block">
-				<begin><regex>{\*</regex><autoend>\*}</autoend></begin>
-				<end><regex>\*}</regex></end>
+			<state id="Dust Comment" type="comment" background-color="none" usesymbolsfrommode="Dust" useautocompletefrommode="Dust" foldable="yes" scope="comment.block">
+				<begin><regex>{!</regex><autoend>!}</autoend></begin>
+				<end><regex>!}</regex></end>
 			</state>
 
-			<state id="Smarty Command" useforautocomplete="no" usesymbolsfrommode="Smarty" useautocompletefrommode="Smarty" scope="meta.block">
+			<state id="Dust Command" useforautocomplete="no" usesymbolsfrommode="Dust" useautocompletefrommode="Dust" scope="meta.block">
 				<begin><regex>\{</regex></begin>
 				<end><regex>\}</regex></end>
 								
-				<keywords id="Smarty Block Delimiter" useforautocomplete="no" scope="markup.processing.languageswitch">
+				<keywords id="Dust Block Delimiter" useforautocomplete="no" scope="markup.processing.languageswitch">
 					<regex>({)</regex>
 					<regex>(})</regex>
 				</keywords>
 
-				<state id="Smarty Strings" type="string" useforautocomplete="no" scope="string.double">
+				<state id="Dust Strings" type="string" useforautocomplete="no" scope="string.double">
 					<begin><regex>"</regex></begin>
 					<end><regex>(((?&lt;!\\)(\\\\)*)|^)"</regex></end>
 
 					<keywords id="Variables in Strings" useforautocomplete="no" scope="language.variable">
-						<regex>(\$[\w\d]+)</regex>
+						<regex>(\{[^\}]+\})</regex>
 					</keywords>
 
 				</state>
 
-				<state id="Smarty Strings2" type="string" useforautocomplete="no" scope="string.single">
+				<state id="Dust Strings2" type="string" useforautocomplete="no" scope="string.single">
 					<begin><regex>'</regex></begin>
 					<end><regex>(?&lt;!\\)(\\\\)*'</regex></end>					
 				</state>
 
 				<keywords id="Variables" useforautocomplete="no" scope="language.variable">
-					<regex>(\$[\w\d]+)</regex>
+					<regex>(\{[^\}]+\})</regex>
 				</keywords>
 
 				<keywords id="Config File Variables" useforautocomplete="no" scope="language.variable.config">
 					<regex>(#[^#]*#)</regex>
 				</keywords>
 
-				<keywords id="Built-in Functions" useforautocomplete="yes" scope="keyword.control">
-					<regex>(?&lt;=[^\w\d])(?i)(/?capture)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(config_load)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(/?foreach)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(foreachelse)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(/?if)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(elseif)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(else)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(include)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(include_php)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(insert)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(ldelim)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(rdelim)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(/?literal)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(/?php)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(/?section)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(sectionelse)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(assign)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(counter)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(cycle)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(debug)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(eval)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(fetch)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(html_checkboxes)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(html_image)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(html_options)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(html_radios)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(html_select_date)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(html_select_time)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(html_table)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(mailto)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(math)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(popup)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(popup_init)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(textformat)(?=[^\w\d])</regex>		
-				</keywords>
-
-				<keywords id="Function Attributes" useforautocomplete="no" scope="markup.tag.attribute.name">
-					<regex>([\w-]*)(?=[ \t]*=)</regex>
-				</keywords>
-				
-				<keywords id="Variable Variables" useforautocomplete="no" scope="markup.tag.attribute.name">
-					<regex>\$[\w\d\[\]-]+\.([\w\d\[\]-]+)</regex>
-				</keywords>
-
-				<keywords id="Variable Modifiers" useforautocomplete="yes" scope="keyword">
-					<regex>(?&lt;=[^\w\d])(?i)(capitalize)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(cat)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(count_characters)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(count_paragraphs)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(count_sentances)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(count_words)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(date_format)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(default)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(escape)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(indent)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(lower)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(nl2br)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(regex_replace)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(replace)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(spacify)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(string_format)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(/?strip)(?=[^\w\d])</regex>		
-					<regex>(?&lt;=[^\w\d])(?i)(strip_tags)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(truncate)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(upper)(?=[^\w\d])</regex>
-					<regex>(?&lt;=[^\w\d])(?i)(wordwrap)(?=[^\w\d])</regex>
-				</keywords>
-
 				<keywords id="Keywords" casesensitive="no" useforautocomplete="yes" scope="keyword">
-					<string>eq</string>
-					<string>ne</string>
-					<string>neq</string>
-					<string>gt</string>
-					<string>lt</string>
-					<string>gte</string>
-					<string>ge</string>
-					<string>lte</string>
-					<string>le</string>
+					<string>@pre</string>
+					<string>@select</string>
+					<string>@default</string>
+					<string>@provide</string>
+					<string>@iterate</string>
+					<string>@if</string>
+					<string>@eq</string>
+					<string>@ne</string>
+					<string>@neq</string>
+					<string>@gt</string>
+					<string>@lt</string>
+					<string>@gte</string>
+					<string>@ge</string>
+					<string>@lte</string>
+					<string>@le</string>
+					<string>:else</string>
+					<string>type</string>
+					<string>key</string>
+					<string>value</string>
+					<string>cond</string>
 					<string>not</string>
 					<string>mod</string>
 					<string>or</string>
@@ -140,13 +82,13 @@
 					<regex>(?&lt;=[^\w\d]|^)(((([0-9]+\.[0-9]*)|(\.[0-9]+))([eE][+\-]?[0-9]+)?[fFlL]?)|((([1-9][0-9]*)|0[0-7]*|(0[xX][0-9a-fA-F]+))(([uU][lL]?)|([lL][uU]?))?))(?=[^\w\d]|$)</regex>
 				</keywords>
 
-				<state-link state="Smarty Command" />
+				<state-link state="Dust Command" />
 
 			</state>
 
 			<state-link mode="XML" state="Comment"/>
 			
-			<!--  This is the "we do a complete HTML mode and import smarty commands everywhere" section -->
+			<!--  This is the "we do a complete HTML mode and import Dust commands everywhere" section -->
 			
 			<state id="CDATA" foldable="yes" scope="markup.inline.cdata">
 				<begin>
@@ -156,7 +98,7 @@
 				<end>
 					<regex>\]\s*\]\s*></regex>
 				</end>
-				<state-link state="Smarty Command"/>
+				<state-link state="Dust Command"/>
 			</state>
 			<state id="Doctype" foldable="no" scope="markup.declaration">
 				<begin>
@@ -168,19 +110,19 @@
 				<state id="String" type="string" scope="markup.declaration.string.double">
 					<begin><regex>"</regex></begin>
 					<end><regex>"</regex></end>
-					<state-link state="Smarty Command"/>
+					<state-link state="Dust Command"/>
 				</state>
 				<state id="SingleString" type="string" scope="markup.declaration.string.single">
 					<begin><regex>'</regex></begin>
 					<end><regex>'</regex></end>
-					<state-link state="Smarty Command"/>
+					<state-link state="Dust Command"/>
 				</state>
 				<state id="Block" type="block" foldable="yes" indent="yes" scope="meta.block.square">
 					<begin><regex>\[</regex><autoend>\]</autoend></begin>
 					<end><regex>]</regex></end>
 					<import />
 				</state>
-				<state-link state="Smarty Command"/>
+				<state-link state="Dust Command"/>
 			</state>
 			<state id="Escape" foldable="no" scope="markup.processing">
 				<begin>
@@ -192,14 +134,14 @@
 				<state id="ProcessingString" type="string" scope="markup.processing.attribute.value.string">
 					<begin><regex>"</regex></begin>
 					<end><regex>"</regex></end>
-					<state-link state="Smarty Command"/>
+					<state-link state="Dust Command"/>
 				</state>
 				<state id="ProcessingSingleString" type="string" scope="markup.processing.attribute.value.string">
 					<begin><regex>'</regex></begin>
 					<end><regex>'</regex></end>
-					<state-link state="Smarty Command"/>
+					<state-link state="Dust Command"/>
 				</state>
-				<state-link state="Smarty Command"/>
+				<state-link state="Dust Command"/>
 			</state>
 			<state id="Inline CSS" delimiterState="Tags" usesymbolsfrommode="CSS" useautocompletefrommode="CSS" foldable="yes" indent="yes" scope="meta.block.css">
 				<begin>
@@ -210,7 +152,7 @@
 					<regex>(?i)&lt;[ \t]*/[ \t]*style[ \t]*></regex>
 				</end>
 				
-				<state id="Smarty Delimiters" scope="markup.processing">
+				<state id="Dust Delimiters" scope="markup.processing">
 					<begin><regex>{[ \t/]*(?i)(?:literal|ldelim|rdelim)</regex></begin>
 					<end><regex>}</regex></end>
 				</state>
@@ -227,7 +169,7 @@
 				<state-link state="String" mode="JavaScript"/>
 				<state-link state="SingleString" mode="JavaScript"/>
 				
-				<state id="Smarty Delimiters" scope="markup.processing">
+				<state id="Dust Delimiters" scope="markup.processing">
 					<begin><regex>{[ \t/]*(?i)(?:literal|ldelim|rdelim)</regex></begin>
 					<end><regex>}</regex></end>
 				</state>
@@ -243,7 +185,7 @@
 					<regex>&lt;(?i)/script[^>]*></regex>
 				</end>
 				
-				<state id="Smarty Delimiters" scope="markup.processing">
+				<state id="Dust Delimiters" scope="markup.processing">
 					<begin><regex>{[ \t/]*(?i)(?:literal|ldelim|rdelim)</regex></begin>
 					<end><regex>}</regex></end>
 				</state>
@@ -277,7 +219,7 @@
                 <end>
                     <regex>&gt;</regex>
                 </end>
-                <state-link state="Smarty Command" />
+                <state-link state="Dust Command" />
                 
                 <state id="Javascript Actions" usesymbolsfrommode="JavaScript" useautocompletefrommode="JavaScript" scope="meta.default" >
 					<begin><regex>(?&lt;=[ \t])(?i)on[\w]+[ \t]*=[ \t]*"</regex></begin>
@@ -302,7 +244,7 @@
 					<begin><regex>(?&lt;=[ \t])(?i)(?:href|src)[ \t]*=[ \t]*"</regex></begin>
 					<end><regex>"</regex></end>
 
-	                <state-link state="Smarty Command" />
+	                <state-link state="Dust Command" />
 
 					<state id="Javascript in Links" usesymbolsfrommode="JavaScript" useautocompletefrommode="JavaScript" scope="meta.block.js">
 						<begin><regex>\A[ \t]*(?i)javascript:</regex></begin>
@@ -328,13 +270,13 @@
                	<state id="Strings in Tags" type="string" useforautocomplete="no" scope="markup.tag.attribute.value.string">
 					<begin><regex>"</regex></begin>
 					<end><regex>"</regex></end>
-	                <state-link state="Smarty Command" />
+	                <state-link state="Dust Command" />
 				</state>
 				
 				<state id="Single Strings in Tags" type="string" useforautocomplete="no" scope="markup.tag.attribute.value.string">
 					<begin><regex>'</regex></begin>
 					<end><regex>'</regex></end>
-	                <state-link state="Smarty Command" />
+	                <state-link state="Dust Command" />
 				</state>
 				
 				<keywords id="Attributes in Tags" useforautocomplete="no" scope="markup.tag.attribute.name">

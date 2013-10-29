@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleGetInfoString</key>
-	<string>1.0 Panic Inc.</string>
+	<string>1.0 Tim Sullivan</string>
 	<key>CFBundleIdentifier</key>
-	<string>SEEMode.Smarty</string>
+	<string>SEEMode.Dust</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>Smarty</string>
+	<string>Dust</string>
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
@@ -17,6 +17,6 @@
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>© 2008 Panic Inc.</string>
+	<string>© 2013 Tim Sullivan</string>
 </dict>
 </plist>
