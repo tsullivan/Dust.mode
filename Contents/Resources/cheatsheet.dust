@@ -1,0 +1,21 @@
+{! comment !}
+
+{@helper parameter="param" /}
+
+{@helper parameter="param"}
+{/helper}
+
+{>"partial" /}
+
+{>"partial" parameter=param /}
+
+{variable}
+
+{#section}
+{/section}
+
+{#section parameter="param"}
+{/section}
+
+{>inlineBlock}
+{/inlineBlock}
