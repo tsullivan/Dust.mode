@@ -20,3 +20,9 @@ Usage
  1. Install.
 
  2. Open a file with a `.dust` extension in Coda or SubEthaEdit.
+
+Known Issues
+------------
+
+- Dust tokens containing quotes aren't highlighting correctly
+- Autocomplete for Dust syntax isn't really implemented
