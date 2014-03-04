@@ -21,7 +21,7 @@ Usage
 
  2. Open a file with a `.dust` extension in Coda or SubEthaEdit.
  
- 3. To turn on highlighting manually go to `Text -> Syntax Mode -> Dust`.
+ 3. To turn on highlighting manually in Coda go to `Text -> Syntax Mode -> Dust`.
  
  4. To make all dust files use this syntax by default in Coda, go to `Coda -> Preferences -> Custom Syntax Modes` and add an entry with values `Extension`: `dust` and `Syntax Mode`: `Dust`
 
